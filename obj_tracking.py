@@ -36,10 +36,23 @@ def main():
 
 		image_maskR = cv2.inRange(hsv,low_red,high_red)
 		outputR = cv2.bitwise_and(frame,frame, mask = image_maskR)
+
+		o = outputB+outputR+outputG
+		
+		#m = np.array([image_maskR,image_maskG,image_maskB])
+		#m = np.swapaxes(m, 0,2)
+		#m = np.swapaxes(m, 0,1)
+		#print(m.shape)
+		#print(frame.shape)
+
+		#o = cv2.bitwise_and(frame,m)
+		
 		cv2.imshow("Original Webcam Feed",frame)
-		cv2.imshow("Blue color Tracking",outputB)
-		cv2.imshow("Green color Tracking",outputG)
-		cv2.imshow("Red color Tracking",outputR)
+		cv2.imshow("BRG segmentation", o)
+		#cv2.imshow("Blue color Tracking",outputB)
+		#cv2.imshow("Green color Tracking",outputG)
+		#cv2.imshow("Red color Tracking",outputR)
+
 		if cv2.waitKey(1) == 27:
 			break
 
