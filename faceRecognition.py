@@ -3,7 +3,7 @@ import sys
 
 faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 video_capture = cv2.VideoCapture(0)
-second_camera = cv2.VideoCapture(1)
+#second_camera = cv2.VideoCapture(1)
 
 while True:
 

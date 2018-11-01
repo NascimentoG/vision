@@ -3,7 +3,7 @@ import numpy as np
 
 def main():
 	
-	cap = cv2.VideoCapture(1)
+	cap = cv2.VideoCapture(0)
 
 	if cap.isOpened():
 		ret, frame = cap.read()
@@ -38,7 +38,7 @@ def main():
 		outputR = cv2.bitwise_and(frame,frame, mask = image_maskR)
 
 		o = outputB+outputR+outputG
-		
+		print(outputB)
 		#m = np.array([image_maskR,image_maskG,image_maskB])
 		#m = np.swapaxes(m, 0,2)
 		#m = np.swapaxes(m, 0,1)
