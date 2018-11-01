@@ -25,8 +25,8 @@ def main():
 		high_green = np.array([80,255,255])
 
 		#Red Color
-		low_red = np.array([140,150,0])
-		high_red = np.array([180,255,255])
+		low_red = np.array([110,150,0])
+		high_red = np.array([200,255,255])
 
 		image_maskB = cv2.inRange(hsv,low_blue,high_blue)
 		outputB = cv2.bitwise_and(frame,frame, mask = image_maskB)
@@ -38,7 +38,6 @@ def main():
 		outputR = cv2.bitwise_and(frame,frame, mask = image_maskR)
 
 		o = outputB+outputR+outputG
-		print(outputB)
 		#m = np.array([image_maskR,image_maskG,image_maskB])
 		#m = np.swapaxes(m, 0,2)
 		#m = np.swapaxes(m, 0,1)
