@@ -12,9 +12,9 @@ img = rgb2gray(img)
 
 print(img.shape)
 
-s = np.linspace(0, 2*np.pi, 400)
-x = 220 + 100*np.cos(s)
-y = 100 + 100*np.sin(s)
+s = np.linspace(0, 2*np.pi, 1000)
+x = 900 + 100*np.cos(s)
+y = 700 + 100*np.sin(s)
 init = np.array([x, y]).T
 
 snake = active_contour(gaussian(img, 3),
