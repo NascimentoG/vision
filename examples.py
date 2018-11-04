@@ -129,7 +129,7 @@ def example_starfish():
     logging.info('Running: example_starfish (MorphGAC)...')
     
     # Load the image.
-    imgcolor = imread('vader.jpeg') / 255.0
+    imgcolor = imread('images/gu.jpeg') / 255.0
     img = rgb2gray(imgcolor)
     
     # g(I)
@@ -139,7 +139,7 @@ def example_starfish():
     init_ls = ms.circle_level_set(img.shape, (320, 320), 640)
     
     # Callback for visual plotting
-    callback = visual_callback_2d(gimg)
+    callback = visual_callback_2d(img)
     
     # MorphGAC. 
     ms.morphological_geodesic_active_contour(gimg, iterations=500, 
@@ -147,30 +147,9 @@ def example_starfish():
                                              smoothing=5, threshold=0.3,
                                              balloon=-1, iter_callback=callback)
 
-def example_confocal3d():
-    logging.info('Running: example_confocal3d (MorphACWE)...')
-    
-    # Load the image.
-    img = np.load(PATH_ARRAY_CONFOCAL)
-    
-    # Initialization of the level-set.
-    init_ls = ms.circle_level_set(img.shape, (30, 50, 80), 25)
-
-    # Callback for visual plotting
-    callback = visual_callback_3d(plot_each=20)
-
-    # Morphological Chan-Vese (or ACWE)
-    ms.morphological_chan_vese(img, iterations=150,
-                               init_level_set=init_ls,
-                               smoothing=1, lambda1=1, lambda2=2,
-                               iter_callback=callback)
-
 if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG)
     example_starfish()
-    # Uncomment the following line to see a 3D example
-    # This is skipped by default since mplot3d is VERY slow plotting 3d meshes
-    #example_confocal3d()
-    
+
     logging.info("Done.")
     plt.show()
